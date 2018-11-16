@@ -133,3 +133,33 @@
     margin-top: 10px;
     font-family: BT2;
 }
+
+.commentBoxContainer {
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 90%;
+    border: dotted black 5px;
+    height: 400px;
+    text-align: center;
+}
+
+.commentBox {
+    overflow: hidden;
+    width: 100%; 
+    height: 100%;
+    resize: none; 
+    padding: 3% 3%;
+    font-family: BT2;
+}
+
+.errorMessage {
+    color: red;
+    font-family: BT2;
+    font-size: 12px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10px;
+}

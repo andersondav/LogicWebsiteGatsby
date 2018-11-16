@@ -32,7 +32,7 @@ class NavBar extends React.Component {
                     onMouseOver={() => this.highlightLink("learn")} onMouseOut={() => this.unHighlightLink("learn")}>
                         Learn
                     </div>
-                <Link to="/aboutThisSite">    
+                <Link to="/about">    
                     <div style={{ color: textColor, backgroundColor: this.state.aboutColor }} className={pageBackgroundStyles.navLinks}
                     onMouseOver={() => this.highlightLink("about")} onMouseOut={() => this.unHighlightLink("about")}>
                         About
