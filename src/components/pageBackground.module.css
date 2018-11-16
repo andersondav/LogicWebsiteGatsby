@@ -29,12 +29,29 @@
     overflow: hidden;
 }
 
+.image {
+    -webkit-filter: blur(4px); /* Safari 6.0 - 9.0 */
+    filter: blur(4px);
+}
+
 .navBar {
     width: 75%;
     height: 50px;
     max-width: 1200px;
     min-width: 600px;
-    border: solid 10px;
+    border-bottom: solid 2px;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+    overflow-y: hidden;
+    z-index: 4;
+}
+
+.navBarR2 {
+    width: 75%;
+    height: 50px;
+    max-width: 1200px;
+    min-width: 600px;
     border-top: none;
     margin: 0 auto;
     right: 0;
@@ -46,7 +63,7 @@
 .navLinks {
     display: inline-block;
     line-height: 50px;
-    height: inherit;
+    height: 50px;
     font-family: BT2;
     vertical-align: middle;
     text-align: center;
@@ -54,6 +71,14 @@
     width: 25%;
     overflow: hidden;
     font-size: 30px;
+}
+
+.subNavLinks {
+    font-size: 20px;
+    text-align: left;
+    margin-left: 3%;
+    line-height: 50px;
+    z-index: 5;
 }
 
 .content {

@@ -20,8 +20,6 @@ class PageBackground extends React.Component {
                 <ImageContainer />
                 <NavBar />
                 <ContentView contentHeight={this.props.contentHeight}>
-                    {/* <p>{this.state.content}</p>
-                    <button onClick={this.changeText}>Push me.</button> */}
                     <div className={pageBackgroundStyles.welcome}>
 					    <h1 className={pageBackgroundStyles.welcomeHeader}>WELCOME!</h1>
 					    <p>This website was made to pay homage to hip hop artist Logic. Hailing from Gaithersburg, Maryland,
@@ -38,21 +36,21 @@ class PageBackground extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            content: "--"
-        }
-        this.changeText = this.changeText.bind(this)
-        this.counter = 0
+        // this.state = {
+        //     content: "--"
+        // }
+        //this.changeText = this.changeText.bind(this)
+        //this.counter = 0
     }
 
-    changeText = () => {
-        if (this.counter % 2 == 0) {
-            this.setState( { content: "Barkour" })
-        } else {
-            this.setState( { content: "Henlo" })
-        }
-        this.counter += 1
-    }
+    // changeText = () => {
+    //     if (this.counter % 2 == 0) {
+    //         this.setState( { content: "Barkour" })
+    //     } else {
+    //         this.setState( { content: "Henlo" })
+    //     }
+    //     this.counter += 1
+    // }
     
 }
 
