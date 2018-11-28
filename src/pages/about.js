@@ -9,7 +9,9 @@ class About extends React.Component {
         this.state = {
             value: "",
             color: "grey",
-            errorVisbility: "hidden"
+            errorVisbility: "hidden",
+            message: "",
+            msgColor: ""
         }
     }
 
@@ -20,9 +22,9 @@ class About extends React.Component {
     submitComment = (event) => {
         event.preventDefault()
         if (this.state.value == "") {
-            this.setState({ errorVisbility: "visible" })
+            this.setState({ errorVisbility: "visible", message: "Please enter a comment before submitting.", msgColor: "red" })
         } else {
-            this.setState({errorVisbility: "hidden" })
+            this.setState({errorVisbility: "visible", message: "Thank you! Your message has been sent.", msgColor: "green" })
             const commentRef = firebase.database().ref('Comments')
             const comment = this.state.value
             commentRef.push(comment)
@@ -51,8 +53,8 @@ class About extends React.Component {
                     Submit Comment
                 </button>
                 </div>
-                <div className={pageBackgroundStyles.errorMessage} style={{ visibility: this.state.errorVisbility }}>
-                    <p>Please enter a comment before submitting.</p>
+                <div className={pageBackgroundStyles.errorMessage} style={{ visibility: this.state.errorVisbility, color: this.state.msgColor }}>
+                    <p>{this.state.message}</p>
                 </div>
             </PageBackground>
         )

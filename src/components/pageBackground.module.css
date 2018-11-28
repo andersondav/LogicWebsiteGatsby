@@ -154,7 +154,6 @@
 }
 
 .errorMessage {
-    color: red;
     font-family: BT2;
     font-size: 12px;
     right: 0;
@@ -163,3 +162,33 @@
     text-align: center;
     margin-top: 10px;
 }
+
+.stepTitle {
+    font-family: BT2;
+    font-size: 3.5vm;
+    margin-left: 2.5%;
+}
+
+.mixtapeTable {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0;
+    align-items: center;
+    text-align: center;
+}
+
+.mixtapeCovers {
+    width: 100%;
+}
+
+.mixtapeCoverContainer {
+    display: inline-block;
+    width: 30%;
+    /* border: solid red 1px; */
+}
+
+.mixtapeCoverContainer2 {
+    display: inline-block;
+    width: 47.5%;
+}
+
