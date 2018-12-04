@@ -4,6 +4,11 @@
 	src: url('../fonts/PenumbraFlareStd-Semibold.otf');    
 }
 
+@font-face {
+    font-family: SourceSans;
+    src: url('../fonts/SourceSansPro-Semibold.otf');
+}
+
 .topPageStripe {
     font-family: BT2;
     width: 100%;
@@ -134,6 +139,10 @@
     font-family: BT2;
 }
 
+.normalText {
+    font-family: SourceSans;
+}
+
 .commentBoxContainer {
     right: 0;
     left: 0;
@@ -169,14 +178,6 @@
     margin-left: 2.5%;
 }
 
-.mixtapeTable {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 0;
-    align-items: center;
-    text-align: center;
-}
-
 .mixtapeCovers {
     width: 100%;
 }
@@ -190,5 +191,26 @@
 .mixtapeCoverContainer2 {
     display: inline-block;
     width: 47.5%;
+}
+
+.stepDescription {
+    font-family: SourceSans;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;   
+}
+
+.stepWithPicture {
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    display: block;
+    width: 60%;
+}
+
+.mixtapeEndMsg {
+    text-align: center;
+    font-family: BT2;
+    font-size: 35px;
 }
 
