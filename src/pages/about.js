@@ -3,6 +3,8 @@ import PageBackground from "../components/pageBackground"
 import pageBackgroundStyles from "../components/pageBackground.module.css"
 import firebase from "../firebase.js"
 
+var fire = new firebase()
+
 class About extends React.Component {
     constructor(props) {
         super(props)
@@ -25,8 +27,8 @@ class About extends React.Component {
             this.setState({ errorVisbility: "visible", message: "Please enter a comment before submitting.", msgColor: "red" })
         } else {
             this.setState({errorVisbility: "visible", message: "Thank you! Your message has been sent.", msgColor: "green" })
-            const commentRef = firebase.database().ref('Comments')
-            const comment = this.state.value
+            var commentRef = fire.db.ref('Comments/')
+            var comment = this.state.value
             commentRef.push(comment)
         }
     }
