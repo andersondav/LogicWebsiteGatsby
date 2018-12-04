@@ -16,11 +16,10 @@ class PageBackground extends React.Component {
     render() {
         return (
             <div style={{ backgroundColor: backgroundColor }}>
-                <p style={{color: "white"}}>{this.state.message}</p>
                 <TopPageStripe />
                 <ImageContainer />
                 <NavBar />
-                <ContentView id="contentView" contentHeight={this.props.contentHeight}>
+                <ContentView contentHeight={this.props.contentHeight}>
                     {this.props.children}
                 </ContentView>
                 <ContentView2 contentHeight={this.props.contentHeight2}/>
@@ -34,13 +33,15 @@ class PageBackground extends React.Component {
         this.state = {
             message: "hmmm"
         }
-        
+        //this.contentHeight = React.createRef()
     }
 
     componentDidMount() {
-        //var height = document.getElementById("contentView").height
-        this.setState({ message: "String(height)" })
+        // var height = this.contentHeight.current.height
+        // this.setState({ message: height + "" })
     }
+
+
     
 }
 
