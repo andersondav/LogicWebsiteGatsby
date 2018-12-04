@@ -6,7 +6,7 @@ import pageBackgroundStyles from "../components/pageBackground.module.css"
 class Index extends React.Component {
     render() {
         return (
-            <PageBackground contentHeight="500px" contentHeight2="750px">
+            <PageBackground contentHeight2="750px">
                 <div className={pageBackgroundStyles.welcome}>
 					<h1 className={pageBackgroundStyles.welcomeHeader}>WELCOME!</h1>
 					<p>This website was made to pay homage to hip hop artist Logic. Hailing from Gaithersburg, Maryland,
@@ -16,6 +16,14 @@ class Index extends React.Component {
 				</div>
             </PageBackground>
         )
+    }
+
+    constructor(props) {
+        super(props)
+    }
+
+    componentDidMount() {
+        
     }
 }
 

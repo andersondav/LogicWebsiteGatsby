@@ -9,7 +9,8 @@ import { borderColor } from "./imageContainer"
 class ContentView2 extends React.Component {
     render() { 
         return (
-        <div className={pageBackgroundStyles.content2} style={{ backgroundColor: "transparent", color: "black", height: this.props.contentHeight }}>
+        <div className={pageBackgroundStyles.content2} 
+        style={{ height: this.props.contentHeight }}>
             {this.props.children}
         </div>
     )}
