@@ -10,6 +10,7 @@ import ContentView2 from "./content2"
 import BT2 from '../fonts/PenumbraFlareStd-Semibold.otf'
 
 import { backgroundColor } from "./imageContainer"
+import { runInThisContext } from "vm";
 
 class PageBackground extends React.Component {
 
@@ -19,9 +20,7 @@ class PageBackground extends React.Component {
                 <TopPageStripe />
                 <ImageContainer />
                 <NavBar />
-                <ContentView contentHeight={this.props.contentHeight}>
-                    {this.props.children}
-                </ContentView>
+                {this.props.children}
                 <ContentView2 contentHeight={this.props.contentHeight2}/>
                 <Footer />
             </div>
@@ -31,17 +30,19 @@ class PageBackground extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            message: "hmmm"
+            contentHeight2: "750px"
         }
-        //this.contentHeight = React.createRef()
     }
 
-    componentDidMount() {
-        // var height = this.contentHeight.current.height
-        // this.setState({ message: height + "" })
-    }
+    // componentDidMount() {
+    //     document.addEventListener('resize', this.fixHeight())
+    // }
 
-
+    // fixHeight() {
+    //     var height = this.ref.current.clientHeight
+    //     this.setState({ contentHeight2: (height + 300) + "px" })
+    // }
+    
     
 }
 
