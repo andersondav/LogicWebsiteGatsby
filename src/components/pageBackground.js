@@ -22,7 +22,12 @@ class PageBackground extends React.Component {
                 <ContentView contentHeight={this.props.contentHeight}>
                     {this.props.children}
                 </ContentView>
-                <ContentView2 contentHeight={this.props.contentHeight2}/>
+                <ContentView2 contentHeight={this.props.contentHeight2}>
+                    {this.props.children}
+                    <div style={{ height: "250px" }}>
+                        randomness lol
+                    </div>
+                </ContentView2>
                 <Footer />
             </div>
         )
