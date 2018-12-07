@@ -15,7 +15,7 @@ if (borderColor == "#ffffff") {
 class NavBar extends React.Component {
     render() {
         return (
-            <div>
+            <div className={pageBackgroundStyles.navBarContainer}>
             <div className={pageBackgroundStyles.navBar} style={{ backgroundColor: borderColor, borderColor: borderColor, 
             position: this.state.barPos, top: this.state.top }} >
                 <Link to="/">

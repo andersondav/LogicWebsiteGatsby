@@ -39,6 +39,13 @@
     filter: blur(4px);
 }
 
+.navBarContainer {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
 .navBar {
     width: 75%;
     height: 50px;
@@ -49,7 +56,7 @@
     right: 0;
     left: 0;
     overflow-y: hidden;
-    z-index: 4;
+    z-index: 5;
 }
 
 .navBarR2 {
@@ -62,7 +69,7 @@
     right: 0;
     left: 0;
     overflow: hidden;
-    z-index: 4;
+    z-index: 5;
 }
 
 .navLinks {
