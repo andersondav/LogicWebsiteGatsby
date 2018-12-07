@@ -68,10 +68,6 @@ class NavBar extends React.Component {
         this.state = {
             containerPos: "absolute",
             containerTop: "auto",
-            barPos: "auto",
-            testText: "0000",
-            top: "auto",
-            top2: "auto",
             homeColor: borderColor,
             listenColor: borderColor,
             learnColor: borderColor,
