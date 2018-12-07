@@ -35,7 +35,7 @@ class About extends React.Component {
 
     render() {
         return (
-            <PageBackground contentHeight="900px" contentHeight2="1150px">
+            <PageBackground contentHeight="auto" contentHeight2="auto">
                 <div className={pageBackgroundStyles.welcome} style={{ border: "none" }}>
 					<h1 className={pageBackgroundStyles.welcomeHeader}>ABOUT THIS SITE</h1>
 					<p style={{ fontSize: "18px" }}>This site was made by Anderson David, a freshman computer science student at Purdue University. I made this website for two reasons:

@@ -8,7 +8,7 @@ class Logic extends React.Component {
 
     render() {
         return (
-            <PageBackground contentHeight="4000px" contentHeight2="4250px">
+            <PageBackground contentHeight="auto" contentHeight2="auto">
                 <div className={pageBackgroundStyles.welcome} style={{ border: "none" }}>
 					<h1 className={pageBackgroundStyles.welcomeHeader}>LOGIC</h1>
 					<p className={pageBackgroundStyles.normalText} style={{ fontSize: "20px" }}>Through his music, Logic has given fans a major glimpse into his life-including his highs, his lows, and everything in between.

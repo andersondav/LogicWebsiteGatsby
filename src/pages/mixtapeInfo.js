@@ -16,7 +16,7 @@ class MixtapeInfo extends React.Component {
 
     render() {
         return (
-            <PageBackground contentHeight="5500px" contentHeight2="5750px">
+            <PageBackground contentHeight="auto" contentHeight2="auto">
                 <div className={pageBackgroundStyles.welcome} style={{ border: "none" }}>
 					<h1 className={pageBackgroundStyles.welcomeHeader}>MIXTAPE DOWNLOAD INFORMATION</h1>
 					<p className={pageBackgroundStyles.normalText} style={{ fontSize: "20px" }}>Before he became the artist he is today, Logic rose to fame largely through his well-known mixtapes.
