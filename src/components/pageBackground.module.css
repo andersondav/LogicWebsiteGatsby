@@ -10,15 +10,16 @@
 }
 
 .topPageStripe {
+    display: flex;
     font-family: BT2;
     width: 100%;
     height: 40px;
     padding: 0;
     color: white;
     font-size: 30px;
-    text-align: center;
     vertical-align: middle;
     text-decoration: none;
+    flex-direction: row;
 }
 
 .imageContainer {

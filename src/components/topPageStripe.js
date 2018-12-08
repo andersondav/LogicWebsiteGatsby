@@ -12,12 +12,19 @@ class TopPageStripe extends React.Component {
     render() {
         return (
         <div className={pageBackgroundStyles.topPageStripe} style={{ backgroundColor: stripeColor }}>
-            <Link to="/" style={{ textDecoration: 'none', color: textColor }}>
-                LOGIC CENTRAL
-            </Link>
+            <div style={{ color: textColor, flexGrow: "1" }}>
+                
+            </div>
+            <div style={{ flexGrow: "1", textAlign: "center" }}>
+                <Link to="/" style={{ textDecoration: 'none', color: textColor }}>
+                    LOGIC CENTRAL
+                </Link>
+            </div>
+            {this.props.children}
         </div>
         )
     }
 }
 
+export {textColor}
 export default TopPageStripe
