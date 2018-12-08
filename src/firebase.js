@@ -14,7 +14,10 @@ class Firebase {
   constructor() {
     this.app = firebase.initializeApp(config);
     this.db = firebase.database();
+    this.auth = firebase.auth()
+    this.provider = new firebase.auth.GoogleAuthProvider()
   }
 }
 
+//export const provider = new firebase.auth.GoogleAuthProvider()
 export default Firebase

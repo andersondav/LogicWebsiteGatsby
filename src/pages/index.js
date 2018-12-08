@@ -2,9 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 import PageBackground from "../components/pageBackground";
 import pageBackgroundStyles from "../components/pageBackground.module.css"
-import TopPageStripe from "../components/topPageStripe"
 import UserLogo from "../images/GenericUser.png"
-import {textColor} from "../components/topPageStripe"
+import TopPageStripe, {textColor} from "../components/topPageStripe"
+import {fire} from "./about.js"
 
 class Index extends React.Component {
     render() {
@@ -12,7 +12,7 @@ class Index extends React.Component {
             <div>
                 <TopPageStripe>
                     <div style={{ color: textColor, flexGrow: "1", textAlign: "right" }}>
-                        <img style={{ height: "40px" }} alt="u" src={UserLogo}/>
+                        <img onClick={this.state.buttonFunc} style={{ height: "40px", cursor: "pointer" }} alt="G" src={this.state.logo}/>
                     </div>
                 </TopPageStripe>
                 <PageBackground contentHeight="auto" contentHeight2="auto">
@@ -26,7 +26,53 @@ class Index extends React.Component {
                 </PageBackground>
             </div>
         )
-    }    
+    }
+    
+    constructor(props) {
+        super(props)
+        this.state = {
+            buttonFunc: this.login,
+            user: null,
+            logo: UserLogo
+        }
+    }
+
+    login = () => {
+        //alert("you're about to login")
+        fire.auth.signInWithPopup(fire.provider) 
+            .then((result) => {
+            const user = result.user;
+            this.setState({
+                user: user,
+                buttonFunc: this.logout,
+                logo: "" + user.photoURL,
+            });
+            alert('you are now logged in as ' + this.state.user.displayName)
+            })
+    }
+
+    logout = () => {
+        fire.auth.signOut().then(() => {
+            this.setState({
+                user: null,
+                buttonFunc: this.login,
+                logo: UserLogo
+            })
+            alert('you are now logged out')
+        }) 
+    }
+
+    componentDidMount() {
+        fire.auth.onAuthStateChanged((user) => {
+            if (user) {
+                this.setState({ 
+                    user: user,
+                    buttonFunc: this.logout,
+                    logo: user.photoURL + ""
+                });
+            }
+        })
+    }
 }
 
 export default Index
