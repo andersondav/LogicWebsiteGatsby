@@ -16,7 +16,7 @@ class PageBackground extends React.Component {
     render() {
         return (
             <div style={{ backgroundColor: backgroundColor }}>
-                <TopPageStripe />
+                {/* <TopPageStripe /> */}
                 <ImageContainer />
                 <NavBar />
                 <ContentView contentHeight={this.props.contentHeight}>
