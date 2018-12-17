@@ -33,22 +33,7 @@ class SongBoard extends React.Component {
                 Sorry, you cannot access this page without being logged in.
             </div>
         )
-        
-        // this.songBoard = (
-        //     <div>
-        //         <div className={pageBackgroundStyles.songBoardIntro}>
-        //             Welcome to the Song Board! Here you can find and listen to the various Logic songs people have 
-        //             recommended! Take a look at some of them below, or click on the "Submit a song" button above to
-        //             submit a song to be featured on the song wall!
-        //         </div>
-        //     </div>
-        // )
-        this.submitPage = (
-            <div className={pageBackgroundStyles.songBoardIntro}>
-                Welcome to the Song Board Recommendations Page! Fill out the form and hit submit and you just might
-                see your recommended song featured on the song board!
-            </div>
-        )
+
         this.state = {
             buttonFunc: this.login,
             user: null,
@@ -57,8 +42,15 @@ class SongBoard extends React.Component {
             currentPage: this.errorPage,
             SBDecor: "none",
             subDecor: "none",
-            myData: null,
+            myData: ["a", "b", "c"],
         }
+
+        this.submitPage = (
+            <div className={pageBackgroundStyles.songBoardIntro}>
+                Welcome to the Song Board Recommendations Page! Fill out the form and hit submit and you just might
+                see your recommended song featured on the song board!
+            </div>
+        )
         
     }
 
@@ -94,22 +86,31 @@ class SongBoard extends React.Component {
     }
 
     componentDidMount() {
+        this.latestSnapshot = null
         this.commentRef = fire.db.ref("Comments/")
-        var toAdd = []
-        this.commentRef.on('value', (snapshot) => {
-            snapshot.forEach(function(childSnapShot) {
-                var key = childSnapShot.key
-                var comment = childSnapShot.val()
-                toAdd.push(comment)
-            })
-          });
-        
-        let message = "hi my name is Anderson"
-        for (let comment in toAdd) {
-            message += comment
+        this.commentRef.once('value')
+            .then((snapshot) => {
+                // alert("entered function")
+                // let pairs = snapshot.val()
+                // var toAdd = ["my", "name", "is"]
+                // this.setState({ myData: toAdd })
+                this.latestSnapshot = snapshot
+            });
+        while (this.latestSnapshot == null) {
+
         }
 
-        const comments = toAdd.map((comm) =>
+        let pairs = snapshot.val()
+        var toAdd = ["my", "name", "is"]
+        this.setState({ myData: toAdd })
+
+        let message = "hmm"
+        let ex = [1, 2, 3, 4, 5]
+        for (let i in this.state.myData) {
+            message += i
+        }
+        alert(message)
+        this.commentsArray = this.state.myData.map((comm) =>
             <div>
                 {comm}
             </div>
@@ -122,10 +123,9 @@ class SongBoard extends React.Component {
                     recommended! Take a look at some of them below, or click on the "Submit a song" button above to
                     submit a song to be featured on the song wall!
                 </div>
-                {comments}
+                {this.commentsArray}
             </div>
         )
-
         fire.auth.onAuthStateChanged((user) => {
             if (user) {
                 this.setState({ 
