@@ -18,7 +18,8 @@ class About extends React.Component {
             msgColor: "",
             buttonFunc: this.login,
             user: null,
-            logo: UserLogo
+            logo: UserLogo,
+            loggedIn: "hidden"
         }
     }
 
@@ -31,6 +32,7 @@ class About extends React.Component {
                 user: user,
                 buttonFunc: this.logout,
                 logo: "" + user.photoURL,
+                loggedIn: "visible"
             });
             alert('you are now logged in as ' + this.state.user.displayName)
             })
@@ -41,7 +43,8 @@ class About extends React.Component {
             this.setState({
                 user: null,
                 buttonFunc: this.login,
-                logo: UserLogo
+                logo: UserLogo,
+                loggedIn: "hidden"
             })
             alert('you are now logged out')
         }) 
@@ -53,7 +56,8 @@ class About extends React.Component {
                 this.setState({ 
                     user: user,
                     buttonFunc: this.logout,
-                    logo: user.photoURL + ""
+                    logo: user.photoURL + "",
+                    loggedIn: "visible"
                 });
             }
         })
@@ -70,7 +74,12 @@ class About extends React.Component {
         } else {
             this.setState({errorVisbility: "visible", message: "Thank you! Your message has been sent.", msgColor: "green" })
             var commentRef = fire.db.ref('Comments/')
-            var comment = this.state.value
+            var comment = ""
+            if (this.state.user) {
+                comment = '------(FROM ' + this.state.user.displayName + ')------\n' + this.state.value
+            } else {
+                comment = this.state.value
+            }
             commentRef.push(comment)
         }
     }
@@ -78,7 +87,7 @@ class About extends React.Component {
     render() {
         return (
             <div>
-                <TopPageStripe>
+                <TopPageStripe loggedIn={this.state.loggedIn}>
                         <div style={{ color: textColor, flexGrow: "1", textAlign: "right" }}>
                             <img onClick={this.state.buttonFunc} style={{ height: "40px", cursor: "pointer" }} alt="G" src={this.state.logo}/>
                         </div>

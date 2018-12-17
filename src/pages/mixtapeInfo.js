@@ -20,7 +20,7 @@ class MixtapeInfo extends React.Component {
     render() {
         return (
             <div>
-                <TopPageStripe>
+                <TopPageStripe loggedIn={this.state.loggedIn}>
                     <div style={{ color: textColor, flexGrow: "1", textAlign: "right" }}>
                         <img onClick={this.state.buttonFunc} style={{ height: "40px", cursor: "pointer" }} alt="G" src={this.state.logo}/>
                     </div>
@@ -151,7 +151,8 @@ class MixtapeInfo extends React.Component {
         this.state = {
             buttonFunc: this.login,
             user: null,
-            logo: UserLogo
+            logo: UserLogo,
+            loggedIn: "hidden"
         }
     }
 
@@ -164,6 +165,7 @@ class MixtapeInfo extends React.Component {
                 user: user,
                 buttonFunc: this.logout,
                 logo: "" + user.photoURL,
+                loggedIn: "visible"
             });
             alert('you are now logged in as ' + this.state.user.displayName)
             })
@@ -174,7 +176,8 @@ class MixtapeInfo extends React.Component {
             this.setState({
                 user: null,
                 buttonFunc: this.login,
-                logo: UserLogo
+                logo: UserLogo,
+                loggedIn: "hidden"
             })
             alert('you are now logged out')
         }) 
@@ -186,7 +189,8 @@ class MixtapeInfo extends React.Component {
                 this.setState({ 
                     user: user,
                     buttonFunc: this.logout,
-                    logo: user.photoURL + ""
+                    logo: user.photoURL + "",
+                    loggedIn: "visible"
                 });
             }
         })

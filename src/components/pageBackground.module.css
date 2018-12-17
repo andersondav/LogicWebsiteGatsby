@@ -226,3 +226,21 @@
     font-size: 35px;
 }
 
+.songBoardHeader {
+    color: grey;
+    text-align: center;
+    /* border: solid red 1px; */
+    font-family: SourceSans;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.songBoardIntro {
+    text-align: center;
+    font-family: BT2;
+    width: 75%;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+}
+
