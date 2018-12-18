@@ -20,7 +20,10 @@ class SongBoard extends React.Component {
                         <span onClick={this.goToSongBoard} style={{ cursor: "pointer", textDecoration: this.state.SBDecor }}>Song Board</span><span>  |  </span>
                         <span onClick={this.goToSubmit} style={{ cursor: "pointer", textDecoration: this.state.subDecor }}>Submit a Song</span>
                     </div>
-                    {this.state.currentPage}
+                    <div className={pageBackgroundStyles.songBoardIntro}>
+                        {this.state.header}
+                    </div>
+                    {this.makeList()}
                 </PageBackground>
             </div>
         )
@@ -28,33 +31,22 @@ class SongBoard extends React.Component {
     
     constructor(props) {
         super(props)
-        this.errorPage = (
-            <div className={pageBackgroundStyles.songBoardIntro}>
-                Sorry, you cannot access this page without being logged in.
-            </div>
-        )
+
+        this.submitPage = "Welcome to the Song Board Recommendations Page! Fill out the form" +  
+        "and hit submit and you just might see your recommended song featured on the song board!"
+
+        this.errorPage = "Sorry, you cannot access this page without being logged in."
         
-        // this.songBoard = (
-        //     <div>
-        //         <div className={pageBackgroundStyles.songBoardIntro}>
-        //             Welcome to the Song Board! Here you can find and listen to the various Logic songs people have 
-        //             recommended! Take a look at some of them below, or click on the "Submit a song" button above to
-        //             submit a song to be featured on the song wall!
-        //         </div>
-        //     </div>
-        // )
-        this.submitPage = (
-            <div className={pageBackgroundStyles.songBoardIntro}>
-                Welcome to the Song Board Recommendations Page! Fill out the form and hit submit and you just might
-                see your recommended song featured on the song board!
-            </div>
-        )
+        this.songBoard = "Welcome to the Song Board! Here you can find and listen to the various Logic" +  
+        "songs fellow users have recommended! Take a look at some of them below, or click on the " + 
+        "\"Submit a song\" button above to submit a song to be featured on the song wall!"
+
         this.state = {
             buttonFunc: this.login,
             user: null,
             logo: UserLogo,
             loggedIn: "hidden",
-            currentPage: this.errorPage,
+            header: this.errorPage,
             SBDecor: "none",
             subDecor: "none",
             myData: null,
@@ -85,7 +77,7 @@ class SongBoard extends React.Component {
                 buttonFunc: this.login,
                 logo: UserLogo,
                 loggedIn: "hidden",
-                currentPage: this.errorPage,
+                header: this.errorPage,
                 SBDecor: "none",
                 subDecor: "none"
             })
@@ -102,30 +94,12 @@ class SongBoard extends React.Component {
                 var comment = childSnapShot.val()
                 toAdd.push(comment)
             })
+            this.setState({
+                myData: toAdd    
+            })
+            //alert(this.state.myData[0] + ", " + this.state.myData[1])
           });
-        
-        let message = "hi my name is Anderson"
-        for (let comment in toAdd) {
-            message += comment
-        }
-
-        const comments = toAdd.map((comm) =>
-            <div>
-                {comm}
-            </div>
-        )
-
-        this.songBoard = (
-            <div>
-                <div className={pageBackgroundStyles.songBoardIntro}>
-                    Welcome to the Song Board! Here you can find and listen to the various Logic songs people have 
-                    recommended! Take a look at some of them below, or click on the "Submit a song" button above to
-                    submit a song to be featured on the song wall!
-                </div>
-                {comments}
-            </div>
-        )
-
+    
         fire.auth.onAuthStateChanged((user) => {
             if (user) {
                 this.setState({ 
@@ -133,42 +107,68 @@ class SongBoard extends React.Component {
                     buttonFunc: this.logout,
                     logo: user.photoURL + "",
                     loggedIn: "visible",
-                    currentPage: this.songBoard,
+                    header: this.songBoard,
                     SBDecor: "underline",
                     subDecor: "none"
                 });
             }
         })
-
-        
-
     }
 
     goToSongBoard = () => {
-        //alert("going to songBoard")
-        if (this.state.SBDecor == "underline") {
-            //alert("nothing changed")
-        } else {
-            this.setState( {
-                currentPage: this.songBoard,
-                SBDecor: "underline",
-                subDecor: "none"
-            })
+        if (this.state.header != this.errorPage) {
+            //alert("going to songBoard")
+            if (this.state.SBDecor == "underline") {
+                //alert("nothing changed")
+            } else {
+                this.setState( {
+                    header: this.songBoard,
+                    SBDecor: "underline",
+                    subDecor: "none"
+                })
+            }
         }
+        
     }
 
     goToSubmit = () => {
-        //alert("going to submit")
-        if (this.state.subDecor == "underline") {
+        if (this.state.header != this.errorPage) {
+            //alert("going to submit")
+            if (this.state.subDecor == "underline") {
 
-        } else {
-            this.setState({
-                currentPage: this.submitPage,
-                SBDecor: "none",
-                subDecor: "underline"
-            })
+            } else {
+                this.setState({
+                    header: this.submitPage,
+                    SBDecor: "none",
+                    subDecor: "underline"
+                })
+            }
         }
-        
+    }
+    
+    makeList() {
+        if (this.state.header == this.submitPage) {
+            return (
+                <div>
+                    {/*have to make form*/}
+                </div>
+            )
+        } else if (this.state.header == this.errorPage) {
+            return (
+                <div>
+                    
+                </div>
+            )
+        } else {
+            if (this.state.myData != null) {
+                var myList = this.state.myData.map(function(item) {
+                    return <div className={pageBackgroundStyles.songList}>{item}</div>
+                })
+                return <div>{ myList }</div>
+            } else {
+                //var myArr = ["John", "Anderson", "David"]
+            }
+        }
     }
 }
 

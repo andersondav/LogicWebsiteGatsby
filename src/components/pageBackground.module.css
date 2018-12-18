@@ -238,9 +238,19 @@
 .songBoardIntro {
     text-align: center;
     font-family: BT2;
-    width: 75%;
+    width: 85%;
     margin: 0 auto;
     right: 0;
     left: 0;
+}
+
+.songList {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 85%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    text-align: center;
 }
 
