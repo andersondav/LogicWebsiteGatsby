@@ -89,12 +89,12 @@ class SongBoard extends React.Component {
     }
 
     componentDidMount() {
-        this.commentRef = fire.db.ref("Comments/")
+        this.commentRef = fire.db.ref("Embed Codes/")
         var toAdd = []
         this.commentRef.on('value', (snapshot) => {
             snapshot.forEach(function(childSnapShot) {
                 var key = childSnapShot.key
-                var comment = childSnapShot.val()
+                var comment = childSnapShot.val().Code
                 toAdd.push(comment)
             })
             this.setState({
@@ -174,7 +174,13 @@ class SongBoard extends React.Component {
         } else {
             if (this.state.myData != null) {
                 var myList = this.state.myData.map(function(item) {
-                    return <div className={pageBackgroundStyles.songList}>{item}</div>
+                    var name = item + ""
+                    return <div className={pageBackgroundStyles.songList}>
+                        <iframe src={"https://open.spotify.com/embed/track/" + name} 
+                        width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media">
+                        </iframe>
+                        <p style={{ color: "grey", textDecoration: "italic"}}>Submitted by Anderson David</p>
+                    </div>
                 })
                 return <div>{ myList }</div>
             } else {
