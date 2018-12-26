@@ -254,3 +254,23 @@
     text-align: center;
 }
 
+.songRecForm {
+    width: 85%;
+    margin: 0 auto;
+    text-align: left;
+    right: 0;
+    left: 0;
+    /* border: solid red 1px; */
+    font-family: BT2;
+}
+
+.songRecBox {
+    overflow: hidden;
+    width: 85%; 
+    height: 30px;
+    resize: none; 
+    padding: 0 1%;
+    font-family: BT2;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}

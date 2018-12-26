@@ -50,6 +50,9 @@ class SongBoard extends React.Component {
             SBDecor: "none",
             subDecor: "none",
             myData: null,
+            value: "",
+            errorVisibility: "hidden",
+            message: ""
         }
         
     }
@@ -149,14 +152,23 @@ class SongBoard extends React.Component {
     makeList() {
         if (this.state.header == this.submitPage) {
             return (
-                <div>
-                    {/*have to make form*/}
+                <div className={pageBackgroundStyles.songRecForm}>
+                    <p style={{ marginTop: "20px", marginBottom: "0px"}}>Song Name</p>
+                    <textarea className={pageBackgroundStyles.songRecBox}
+                        onChange={this.handleChange} placeholder="Enter song title here">
+                            {this.state.value}
+                    </textarea>
+                    <button className={pageBackgroundStyles.submitComment} onClick={this.submitComment}>
+                        Submit Comment
+                    </button>
+                    <div className={pageBackgroundStyles.errorMessage} style={{ visibility: this.state.errorVisbility, color: this.state.msgColor }}>
+                        <p>{this.state.message}</p>
+                    </div>
                 </div>
             )
         } else if (this.state.header == this.errorPage) {
             return (
                 <div>
-                    
                 </div>
             )
         } else {
@@ -170,6 +182,26 @@ class SongBoard extends React.Component {
             }
         }
     }
+
+    handleChange = (event) => {
+        this.setState({ value: event.target.value.toUpperCase() })
+    }
+
+    submitComment = (event) => {
+        event.preventDefault()
+        if (this.state.value == "") {
+            this.setState({ errorVisbility: "visible", message: "Please enter a song before submitting.", msgColor: "red" })
+        } else {
+            this.setState({errorVisbility: "visible", message: "Thank you! Your recommendation has been sent.", msgColor: "green" })
+            var songRef = fire.db.ref('Songs/')
+            var songTitle = {
+                    title: this.state.value,
+                    user: this.state.user.displayName
+                }
+            }
+            songRef.push(songTitle)
+    }
+    
 }
 
 export default SongBoard
