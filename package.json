@@ -6,9 +6,7 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "build": "gatsby build",
-    "serve": "gatsby serve"
-  },
-  "scripts": {
+    "serve": "gatsby serve",
     "heroku-postbuild": "gatsby build"
   },
   "dependencies": {
