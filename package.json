@@ -9,12 +9,14 @@
     "develop": "gatsby develop"
   },
   "dependencies": {
+    "firebase": "5.0.4",
     "gatsby": "^2.0.0",
     "gatsby-plugin-typography": "^2.2.1",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-typography": "^0.16.13",
     "typography": "^0.16.17",
+    "whatwg-fetch": "^2.0.4",
     "yarn": "^1.3.2"
   }
 }

@@ -12,10 +12,12 @@ import firebase from "firebase"
 
 class Firebase {
   constructor() {
-    this.app = firebase.initializeApp(config);
-    this.db = firebase.database();
-    this.auth = firebase.auth()
-    this.provider = new firebase.auth.GoogleAuthProvider()
+    if (typeof window !== `undefined`) {
+      this.app = firebase.initializeApp(config);
+      this.db = firebase.database();
+      this.auth = firebase.auth()
+      this.provider = new firebase.auth.GoogleAuthProvider()
+    }
   }
 }
 
