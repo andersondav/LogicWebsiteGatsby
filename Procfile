@@ -1,1 +1,1 @@
-web: gatsby develop
+web: gatsby serve --port ${PORT}
