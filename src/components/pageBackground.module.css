@@ -226,3 +226,62 @@
     font-size: 35px;
 }
 
+.songBoardHeader {
+    color: grey;
+    text-align: center;
+    /* border: solid red 1px; */
+    font-family: SourceSans;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.songBoardIntro {
+    text-align: center;
+    font-family: BT2;
+    width: 85%;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+    margin-bottom: 25px;
+}
+
+.songList {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 85%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    text-align: left;
+    /*border: solid red 1px; */
+}
+
+.songRecForm {
+    width: 85%;
+    margin: 0 auto;
+    text-align: left;
+    right: 0;
+    left: 0;
+    /* border: solid red 1px; */
+    font-family: BT2;
+}
+
+.songRecBox {
+    overflow: hidden;
+    width: 85%; 
+    height: 30px;
+    resize: none; 
+    padding: 0 1%;
+    font-family: BT2;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.userTag {
+    color: grey;
+    font-style: italic;
+    font-family: SourceSans;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 20px;
+}

@@ -3,6 +3,7 @@ import pageBackgroundStyles from "./pageBackground.module.css"
 import '../fonts/PenumbraFlareStd-Semibold.otf'
 import { Link } from "gatsby"
 import { backgroundColor, borderColor } from "./imageContainer"
+import BobbyBoy from "../images/BobbyBoy.jpeg"
 
 
 var textColor = borderColor === "#ffffff" ? "#000000" : "#ffffff"
@@ -13,7 +14,9 @@ class TopPageStripe extends React.Component {
         return (
         <div className={pageBackgroundStyles.topPageStripe} style={{ backgroundColor: stripeColor }}>
             <div style={{ color: textColor, flexGrow: "1" }}>
-                
+                <Link to="/songBoard" style={{ textDecoration: "none" }}>
+                    <img src={BobbyBoy} style={{ height: "40px", visibility: this.props.loggedIn }}/>
+                </Link>
             </div>
             <div style={{ flexGrow: "1", textAlign: "center" }}>
                 <Link to="/" style={{ textDecoration: 'none', color: textColor }}>
