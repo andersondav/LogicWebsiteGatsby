@@ -1,1 +1,1 @@
-web: gatsby serve --port 8000
+web: yarn start --port ${PORT:8000}
