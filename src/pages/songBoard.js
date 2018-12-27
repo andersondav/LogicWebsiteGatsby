@@ -190,7 +190,7 @@ class SongBoard extends React.Component {
                     // else {
                         return <div className={pageBackgroundStyles.songList}>
                             <iframe src={"https://open.spotify.com/embed/track/" + name} 
-                            width="50%" height="80" frameborder="0" 
+                            width="75%" height="80" frameborder="0" 
                             allowtransparency="true" allow="encrypted-media"
                             style={{padding: "0 0", margin: "0 0"}}>
                             </iframe>
