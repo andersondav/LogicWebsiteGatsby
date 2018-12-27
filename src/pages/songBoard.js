@@ -5,6 +5,7 @@ import pageBackgroundStyles from "../components/pageBackground.module.css"
 import UserLogo from "../images/GenericUser.png"
 import TopPageStripe, {textColor} from "../components/topPageStripe"
 import {fire} from "./about.js"
+import fiveammp3 from "../music/5AM.mp3"
 
 class SongBoard extends React.Component {
     render() {
@@ -94,8 +95,12 @@ class SongBoard extends React.Component {
         this.commentRef.on('value', (snapshot) => {
             snapshot.forEach(function(childSnapShot) {
                 var key = childSnapShot.key
-                var comment = childSnapShot.val().Code
-                toAdd.push(comment)
+                var songName = childSnapShot.val().Code
+                var user = childSnapShot.val().User
+                toAdd.push({
+                    "name": songName,
+                    "user": user
+                })
             })
             this.setState({
                 myData: toAdd    
@@ -174,13 +179,24 @@ class SongBoard extends React.Component {
         } else {
             if (this.state.myData != null) {
                 var myList = this.state.myData.map(function(item) {
-                    var name = item + ""
-                    return <div className={pageBackgroundStyles.songList}>
-                        <iframe src={"https://open.spotify.com/embed/track/" + name} 
-                        width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media">
-                        </iframe>
-                        <p style={{ color: "grey", textDecoration: "italic"}}>Submitted by Anderson David</p>
-                    </div>
+                    var name = item.name + ""
+                    var user = item.user + ""
+                    // if (name.includes("mp3")) {
+                    //     return <div className={pageBackgroundStyles.songList}>
+                    //         <audio ref="audio_tag" src={fiveammp3} controls/>
+                    //         <p className={pageBackgroundStyles.userTag}>Submitted by {user}</p>
+                    //     </div>
+                    // }
+                    // else {
+                        return <div className={pageBackgroundStyles.songList}>
+                            <iframe src={"https://open.spotify.com/embed/track/" + name} 
+                            width="50%" height="80" frameborder="0" 
+                            allowtransparency="true" allow="encrypted-media"
+                            style={{padding: "0 0", margin: "0 0"}}>
+                            </iframe>
+                            <p className={pageBackgroundStyles.userTag}>Submitted by {user}</p>
+                        </div>
+                    //}
                 })
                 return <div>{ myList }</div>
             } else {
