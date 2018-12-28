@@ -47,7 +47,7 @@ class SongBoard extends React.Component {
             user: null,
             logo: UserLogo,
             loggedIn: "hidden",
-            header: this.errorPage,
+            header: this.songBoard,
             SBDecor: "none",
             subDecor: "none",
             myData: null,
@@ -81,7 +81,7 @@ class SongBoard extends React.Component {
                 buttonFunc: this.login,
                 logo: UserLogo,
                 loggedIn: "hidden",
-                header: this.errorPage,
+                header: this.songBoard,
                 SBDecor: "none",
                 subDecor: "none"
             })
@@ -158,7 +158,7 @@ class SongBoard extends React.Component {
         if (this.state.header == this.submitPage) {
             return (
                 <div className={pageBackgroundStyles.songRecForm}>
-                    <p style={{ marginTop: "20px", marginBottom: "0px"}}>Song Name</p>
+                    <p style={{ marginTop: "20px", marginBottom: "0px"}}>Song Name, User Name</p>
                     <textarea className={pageBackgroundStyles.songRecBox}
                         onChange={this.handleChange} placeholder="Enter song title here">
                             {this.state.value}

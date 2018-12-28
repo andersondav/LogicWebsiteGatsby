@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "gatsby develop",
-    "heroku-postbuild": "gatsby build",
+    "now-build": "gatsby build",
     "start": "gatsby serve --port ${PORT}",
     "develop": "gatsby develop"
   },
