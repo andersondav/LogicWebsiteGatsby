@@ -39,7 +39,7 @@ class Index extends React.Component {
     }
 
     login = () => {
-        //alert("you're about to login")
+        alert("you're about to login")
         fire.auth.signInWithPopup(fire.provider) 
             .then((result) => {
             const user = result.user;
