@@ -116,20 +116,21 @@ class NavBar extends React.Component {
 
     highlightLink = (button) => {
         if (button == "home") {
-            this.setState({ homeColor: "#b2b2b2", songSuggestorVisibility: "hidden" })
+            this.setState({ homeColor: "#b2b2b2" })
         } else if (button == "listen") {
-            this.setState({ listenColor: "#b2b2b2", songSuggestorVisibility: "visible", logicVisibility: "hidden" })
+            this.setState({ listenColor: "#b2b2b2" })
         } else if (button == "learn") {
-            this.setState({ learnColor: "#b2b2b2", logicVisibility: "visible", songSuggestorVisibility: "hidden" })
+            this.setState({ learnColor: "#b2b2b2" })
         } else if (button == "about") {
-            this.setState({ aboutColor: "#b2b2b2", logicVisibility: "hidden" })      
-        } else if (button == "songSuggestor") {
-            this.setState({ songSuggestorColor: "#b2b2b2"})
-        } else if (button == "logic") {
-            this.setState({ logicColor: "#b2b2b2" })
-        } else if (button == "thisSite") {
-            this.setState({ thisSiteColor: "#b2b2b2" })
-        }
+            this.setState({ aboutColor: "#b2b2b2" }) 
+        }     
+        // } else if (button == "songSuggestor") {
+        //     this.setState({ songSuggestorColor: "#b2b2b2"})
+        // } else if (button == "logic") {
+        //     this.setState({ logicColor: "#b2b2b2" })
+        // } else if (button == "thisSite") {
+        //     this.setState({ thisSiteColor: "#b2b2b2" })
+        // }
     }
 
     unHighlightLink = (button) => {
@@ -141,13 +142,14 @@ class NavBar extends React.Component {
             this.setState({ learnColor: borderColor })
         } else if (button == "about") {
             this.setState({ aboutColor: borderColor })
-        } else if (button == "songSuggestor") {
-            this.setState({ songSuggestorColor: borderColor, songSuggestorVisibility: "hidden" })
-        } else if (button == "logic") {
-            this.setState({ logicColor: borderColor, logicVisibility: "hidden" })
-        } else if (button == "thisSite") {
-            this.setState({ thisSiteColor: borderColor})
         }
+        // } else if (button == "songSuggestor") {
+        //     this.setState({ songSuggestorColor: borderColor, songSuggestorVisibility: "hidden" })
+        // } else if (button == "logic") {
+        //     this.setState({ logicColor: borderColor, logicVisibility: "hidden" })
+        // } else if (button == "thisSite") {
+        //     this.setState({ thisSiteColor: borderColor})
+        // }
     }
 
 }
