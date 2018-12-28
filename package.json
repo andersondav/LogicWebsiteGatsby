@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "firebase": "5.0.4",
+    "firebaseui": "^3.5.1",
     "gatsby": "^2.0.0",
     "gatsby-plugin-typography": "^2.2.1",
     "react": "^16.5.1",
