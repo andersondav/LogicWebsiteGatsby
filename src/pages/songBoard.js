@@ -158,7 +158,7 @@ class SongBoard extends React.Component {
         if (this.state.header == this.submitPage) {
             return (
                 <div className={pageBackgroundStyles.songRecForm}>
-                    <p style={{ marginTop: "20px", marginBottom: "0px"}}>Song Name, User Name</p>
+                    <p style={{ marginTop: "20px", marginBottom: "0px"}}>Song Name</p>
                     <textarea className={pageBackgroundStyles.songRecBox}
                         onChange={this.handleChange} placeholder="Enter song title here">
                             {this.state.value}
