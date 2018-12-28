@@ -1,12 +1,5 @@
-# gatsby-starter-hello-world
-Starter with the bare essentials needed for a [Gatsby](https://www.gatsbyjs.org/) site.
+# Logic Central
+Website created to give information on musician Bobby Hall, better known as Logic. This website gives information on Logic's life, fanbase, and music. Created using GatsbyJS, a static site generator built on Node and React. Additionally, utilizes Firebase to authenticate users and read/write user-sent data. Deployed on netlify (see web link below).
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-```
-gatsby new gatsby-site https://github.com/gatsbyjs/gatsby-starter-hello-world
-```
-
-Or [view the live demo here](https://gatsby-starter-hello-world-demo.netlify.com/).
-
-## Running in development
-`gatsby develop`
+## Web Link
+https://tinyurl.com/y77nm95o
