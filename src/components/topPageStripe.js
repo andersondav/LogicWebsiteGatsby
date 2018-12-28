@@ -15,7 +15,7 @@ class TopPageStripe extends React.Component {
         <div className={pageBackgroundStyles.topPageStripe} style={{ backgroundColor: stripeColor }}>
             <div style={{ color: textColor, flexGrow: "1" }}>
                 <Link to="/songBoard" style={{ textDecoration: "none" }}>
-                    <img src={BobbyBoy} style={{ height: "40px", visibility: "visible" }}/>
+                    <img src={BobbyBoy} style={{ height: "40px", visibility: this.props.loggedIn }}/>
                 </Link>
             </div>
             <div style={{ flexGrow: "1", textAlign: "center" }}>

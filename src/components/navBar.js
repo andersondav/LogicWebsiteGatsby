@@ -24,14 +24,18 @@ class NavBar extends React.Component {
                             Home
                         </div>
                     </Link>
+                    <Link to="/mixtapeInfo">
                         <div style={{ color: textColor, backgroundColor: this.state.listenColor }} className={pageBackgroundStyles.navLinks}
                         onMouseOver={() => this.highlightLink("listen")} onMouseOut={() => this.unHighlightLink("listen")}>
                             Listen
                         </div>
+                    </Link>
+                    <Link to="/logic">    
                         <div style={{ color: textColor, backgroundColor: this.state.learnColor }} className={pageBackgroundStyles.navLinks}
                         onMouseOver={() => this.highlightLink("learn")} onMouseOut={() => this.unHighlightLink("learn")}>
                             Learn
                         </div>
+                    </Link>
                     <Link to="/about">    
                         <div style={{ color: textColor, backgroundColor: this.state.aboutColor }} className={pageBackgroundStyles.navLinks}
                         onMouseOver={() => this.highlightLink("about")} onMouseOut={() => this.unHighlightLink("about")}>
@@ -44,13 +48,13 @@ class NavBar extends React.Component {
                         <div style={{ visibility: "hidden" }} className={pageBackgroundStyles.navLinks}>
                         </div>
                     <Link to="/mixtapeInfo">
-                        <div style={{ color: textColor, backgroundColor: this.state.songSuggestorColor, visibility: this.state.songSuggestorVisibility }} className={pageBackgroundStyles.navLinks}
+                        <div style={{ color: textColor, backgroundColor: this.state.songSuggestorColor, visibility: "hidden" }} className={pageBackgroundStyles.navLinks}
                         onMouseOver={() => this.highlightLink("songSuggestor")} onMouseOut={() => this.unHighlightLink("songSuggestor")}>
                             <div className={pageBackgroundStyles.subNavLinks}>Mixtape Info</div>
                         </div>
                     </Link>
                     <Link to="/logic">
-                        <div style={{ color: textColor, backgroundColor: this.state.logicColor, visibility: this.state.logicVisibility }} className={pageBackgroundStyles.navLinks}
+                        <div style={{ color: textColor, backgroundColor: this.state.logicColor, visibility: "hidden" }} className={pageBackgroundStyles.navLinks}
                         onMouseOver={() => this.highlightLink("logic")} onMouseOut={() => this.unHighlightLink("logic")}>
                             <div className={pageBackgroundStyles.subNavLinks}>Logic</div>
                         </div>
@@ -83,8 +87,8 @@ class NavBar extends React.Component {
     }
 
     componentDidMount() {
-        window.addEventListener('scroll', this.handleScroll)
-        window.addEventListener('mousemove', this.clearSubLinks)
+        //window.addEventListener('scroll', this.handleScroll)
+        //window.addEventListener('mousemove', this.clearSubLinks)
         window.addEventListener('mouseout', this.clearAll)
     }
 

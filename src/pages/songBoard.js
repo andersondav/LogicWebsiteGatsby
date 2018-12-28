@@ -47,7 +47,7 @@ class SongBoard extends React.Component {
             user: null,
             logo: UserLogo,
             loggedIn: "hidden",
-            header: this.songBoard,
+            header: this.errorPage,
             SBDecor: "none",
             subDecor: "none",
             myData: null,
@@ -81,7 +81,7 @@ class SongBoard extends React.Component {
                 buttonFunc: this.login,
                 logo: UserLogo,
                 loggedIn: "hidden",
-                header: this.songBoard,
+                header: this.errorPage,
                 SBDecor: "none",
                 subDecor: "none"
             })
